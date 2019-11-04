@@ -1,0 +1,89 @@
+// When you make a folder for java project you have to include package and folder name.
+
+package claculator;
+
+
+import java.io.*;
+
+class Promt {
+    static Console con = System.console();
+
+    static String getString(String question) {
+        con.printf(question);
+        String data = con.readLine();
+        return data;
+    }
+}
+
+class result {
+    static int Addfunc(int a, int b) {
+        return a + b;
+
+    }
+
+    static int Subfunc(int a, int b) {
+        return a - b;
+
+    }
+
+    static int Mulfunc(int a, int b) {
+        return a * b;
+
+    }
+
+    static int Divfunc(int a, int b) {
+        return a / b;
+
+    }
+}
+
+class UserInput {
+    static int choice = Integer.parseInt(Promt.getString("Enter Operation \n"));
+    static int num1 = Integer.parseInt(Promt.getString("Enter First value \n"));
+    static int num2 = Integer.parseInt(Promt.getString("Enter Second value \n"));
+
+}
+
+class calc {
+
+    static boolean Getmenu(int val1, int val2, int select) {
+        switch (select) {
+
+        case 1:
+            System.out.println("The result is : " + result.Addfunc(val1, val2));
+            return true;
+
+        case 2:
+            System.out.println("The result is : " + result.Subfunc(val1, val2));
+            return true;
+
+        case 3:
+            System.out.println("The result is : " + result.Mulfunc(val1, val2));
+            return true;
+
+        case 4:
+            System.out.println("The result is : " + result.Divfunc(val1, val2));
+            return true;
+        default:
+            System.out.println("Wrong input");
+            return true;
+        }
+    }
+
+    public static void main(String[] args) {
+
+        boolean processing;
+        do {
+            System.out.println("Press 1 for addition");
+            System.out.println("Press 2 for substraction");
+            System.out.println("Press 3 for multiplication ");
+            System.out.println("Press 4 for division ");
+            System.out.println("Press 5 for exit ");
+            int select = UserInput.choice;
+            int val1 = UserInput.num1;
+            int val2 = UserInput.num2;
+            processing = Getmenu(val1, val2, select);
+
+        } while (processing);
+    }
+}
